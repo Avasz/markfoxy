@@ -1,0 +1,4 @@
+<h1>Markfoxy</h1>
+<b>Markfoxy</b> is an easy to use markdown to HTML application. It is an open webapp created using various open source technologies.
+<p>
+<b>Credits:</b> John Fraser (showdown.js), John Gruber & Aaron Swartz (markdown)

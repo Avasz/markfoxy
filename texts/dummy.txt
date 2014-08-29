@@ -1,0 +1,26 @@
+#Header 1
+###Header 3
+#####Header5
+
+**This is a bold sentence**
+*And this is italic sentence*
+***This is bold and intalic sentence***
+
+Let's see an ordered list of days:
+
+1. Sunday
+1. Monday
+3. Tuesday
+4. Wednesday
+
+And some unordered list:
+
++ Eggs
+* Milk
+- Meat
+
+Demo of link. Click [here](http://google.com) to go to google.
+
+Demo of image:
+
+![Alternate Text](./style/images/icons/image.png)

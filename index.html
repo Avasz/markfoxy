@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width">
+   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+   <link rel="stylesheet" type="text/css" href="style/icons.css"/>
+   <link rel="stylesheet" type="text/css" href="style/principal.css"/>
+   <link rel="stylesheet" type="text/css" href="style/header.css"/>
+   <link rel="stylesheet" type="text/css" href="style/sidebar.css"/>
+   <link rel="stylesheet" type="text/css" href="style/menuaction.css"/>
+   <link rel="stylesheet" type="text/css" href="style/menulist.css"/>
+   <link rel="stylesheet" type="text/css" href="style/pagebody.css"/>
+   <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+   <script type="text/javascript" src="js/dispatcher.js"></script>
+   <script type="text/javascript" src="js/menuaction.js"></script>
+   <script type="text/javascript" src="js/jquery-ui.js"></script>
+   <script type="text/javascript" src="js/temporary.js"></script>
+   <script type="text/javascript" src="js/menulist.js"></script>
+   <script type="text/javascript" src="js/pagebody.js"></script>
+   <script type="text/javascript" src="js/install.js"></script>
+   <script type="text/javascript" src="js/toolbar.js"></script>
+   <script type="text/javascript" src="js/sidebar.js"></script>
+   <script type="text/javascript" src="js/syntax.js"></script>
+   <script src="js/showdown.js"></script>
+   <script src="js/buttons.js"></script>
+   <script src="js/main.js"></script>
+
+   <title>MarkFoxy</title>
+</head>
+
+<body >
+  <section class="principal">
+      <header id="topper">
+        <h1 onclick="$(textarea).load('texts/dummy.txt');">MarkFoxy</h1>
+          <ul>
+            <li id="sidebar_trigger" class="icon menu"></li>
+          </ul>
+        </header>
+      <div id="bar" class="barc">
+          <ul>
+              <li id="preview" data-value="1" onclick="txtarea();">Preview</li>
+              <script>
+                function txtarea(){
+
+                  var a = $('#preview').data("value");
+                  if(a == 1)
+                    {
+                      $('#textarea').hide();
+                      $('#output').show();
+                      $('#preview').text('Write');
+                       $('#preview').data('value', 2);
+                    }
+                  else if(a == 2)
+                    {
+                      $('#output').hide();
+                      $('#textarea').show();
+                      $('#preview').text('Preview');
+                      $('#preview').data('value', 1);
+                    }
+                  else{
+                    alert("Error");
+                  }
+
+                }
+              </script>
+              <li id="clear" onclick="viewashtml();">HTML</li>
+              <script>
+                function outpt(){
+                  $('#output').hide();
+                  $('#textarea').show();
+                }
+              </script>
+              <li id="Clear" data-value="1" onclick="$('#textarea').val(' ')">Clear</li>
+          </ul>
+      </div>
+
+
+
+      <div id="area"  onclick="$('#header_drop').hide();">
+	       <textarea class="lined" id="textarea" onkeyup="preview(this);"  onclick="$('#container').hide();">
+
+</textarea>
+<div id="output"></div>
+
+
+        <div id="container">
+        
+
+        </div>
+      </div>
+  </section>
+
+
+  <section class="sidebar">
+    <header id="sidetop">
+      <h2>Preferences</h2>
+    </header>
+    <div class="menulist">
+      <menu type="popup" label="Syntax">
+	      <menu type="popup" label="Block Elements">
+          <menuitem type="radio" radiogroup="syntax" label="Header" onclick="$('#container').show().load('texts/header.txt')";></menuitem>
+	        <menuitem type="radio" radiogroup="syntax" label="Paragraph" onclick="$('#container').show().load('texts/para.txt');"></menuitem>
+          <menuitem type="radio" radiogroup="syntax" label="Block" onclick="$('#container').show().load('texts/block.txt');"></menuitem>
+          <menuitem type="radio" radiogroup="syntax" label="List" onclick="$('#container').show().load('texts/list.txt').toggleSidebarView();"></menuitem>
+          <menuitem type="radio" radiogroup="syntax" label="Code Blocks" onclick="$('#container').show().load('texts/code.txt');"></menuitem>
+          <menuitem type="radio" radiogroup="syntax" label="Horizontal Rules" onclick = "$('#container').show().load('texts/hrrule.txt');"></menuitem>
+        </menu>
+        <menu type="popup" label="Span Elements">
+          <menuitem type="radio" radiogroup="syntax" label="Link" onclick="$('#container').show().load('texts/links.txt');"></menuitem>
+          <menuitem type="radio" radiogroup="syntax" label="Emphasis" onclick = "$('#container').show().load('texts/emphasis.txt');"></menuitem>
+          <menuitem type="radio" radiogroup="syntax" label="Code" onclick="$('#container').show().load('texts/codes.txt');"></menuitem>
+          <menuitem type="radio" radiogroup="syntax" label="Images" onclick = "$('#container').show().load('texts/imagex.txt');"></menuitem>
+        </menu>
+        <menu type="popup" label="Miscellaneous">
+          <menuitem type="radio" radiogroup="syntax" label="Backslash Escape" onclick="$('#container').show().load('texts/backslash.txt');"></menuitem>
+          <menuitem type="radio" radiogroup="syntax" label="Automatic Links" onclick="$('#container').show().load('texts/autolinks.txt');"></menuitem>
+        </menu>
+      </menu>
+      <menu type="popup" label="Modes">
+		    <menuitem type="radio" radiogroup="modes" label="Night" onclick="night();"></menuitem>
+		    <menuitem type="radio" radiogroup="modes" label="Day" onclick="day();"></menuitem>
+	    </menu>
+      <menu type="popup" label="About">
+		    <menuitem type="radio" radiogroup="about" label="About Markwrite" onclick="$('#container').show().load('about.txt');"></menuitem>
+		    <menuitem type="radio" radiogroup="about" label="License" onclick="$('#container').show().load('texts/license.txt');"></menuitem>
+		    <menuitem type="radio" radiogroup="about" label="Source Code" onclick="$('#container').show().load('texts/source.txt');"></menuitem>
+	    </menu>
+    </div>
+   </section>
+</body>
+</html>
